@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Hello World</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, minimal-ui">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+  <script src="https://unpkg.com/vue"></script>
+  <script src="https://unpkg.com/http-vue-loader"></script>
+
+  
+</head>
+
+<body>
+  
+  <div id="app" class="container">
+    <navbar></navbar>
+    <div class="jumbotron text-center">
+      <h2 class="display-4">Testing Single File Vue Component</h2>
+      <p v-text="lorem"></p>
+      <button class="btn btn-secondary btn-lg">Registration</button>
+      <button class="btn btn-primary btn-lg">Login</button>
+      
+    </div>
+    
+    <test></test>
+  </div>
+
+  <script>
+  new window.Vue({
+    el: '#app',
+    data() {
+        return {
+
+          lorem: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit,'
+        }
+    },
+
+    components: {
+      'test': window.httpVueLoader('/js/components/Test.vue'),
+      'navbar': window.httpVueLoader('/js/components/Navbar.vue')
+    },
+  });
+  </script>
+</body>
+</html>
